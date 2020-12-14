@@ -31,7 +31,7 @@ void ofApp::setup(){
     setupGui();
     
     ofBackground(20,20,20);
-    server.setup("192.168.178.43"/*127.0.0.1"*/, 44999);
+    server.setup(sActiveNic, 44999);
     
  /*
     mySequence.loadSequence("sequenceBig",FRAMERATE);
@@ -139,7 +139,9 @@ void ofApp::onDropdownEvent(ofxDatGuiDropdownEvent e){
     string sTarget = ofToString(e.target->getName());
     if(sTarget == sNic){
         //ofLogNotice(e.target->getLabel());
+        bActive = false;
         sActiveNic = e.target->getLabel();
+        server.setup(sActiveNic);
     }
 }
 
