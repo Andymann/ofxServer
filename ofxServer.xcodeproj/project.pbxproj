@@ -3320,6 +3320,141 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>F0EA3F17781D4A5FA1A20277</key>
+			<dict>
+				<key>fileRef</key>
+				<string>18192E7B01333D12EAA7E385</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>18192E7B01333D12EAA7E385</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.objcpp</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjourPublisher.mm</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjourPublisher.mm</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>D72A7CAB069B0EFB5F075486</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjourPublisher.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjourPublisher.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>EE1D88CCA47EA1C1B4256FDD</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjourConstant.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjourConstant.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>67CE65D0E4DFEB2954F05FCD</key>
+			<dict>
+				<key>fileRef</key>
+				<string>009E24B63C7147D62FCC1143</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>009E24B63C7147D62FCC1143</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.objcpp</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjourBrowser.mm</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjourBrowser.mm</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>A3847FE94DA62DF5CBEF10D4</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjourBrowser.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjourBrowser.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>01F50EA917B8CFA6AA8493DD</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>4225E3878B2EE9B7D1E739AD</string>
+					<string>A3847FE94DA62DF5CBEF10D4</string>
+					<string>009E24B63C7147D62FCC1143</string>
+					<string>EE1D88CCA47EA1C1B4256FDD</string>
+					<string>D72A7CAB069B0EFB5F075486</string>
+					<string>18192E7B01333D12EAA7E385</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>870213356BDB9E78838108C9</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>01F50EA917B8CFA6AA8493DD</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxBonjour</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>4225E3878B2EE9B7D1E739AD</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBonjour.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxBonjour/src/ofxBonjour.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>56FB9033ACC2F7C636A9188B</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -3503,6 +3638,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -3573,6 +3709,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -3646,6 +3783,7 @@ fi
 			<dict>
 				<key>children</key>
 				<array>
+					<string>870213356BDB9E78838108C9</string>
 					<string>D8DD1043C333F6F63C8685E6</string>
 					<string>F58787ADB2CBE3635F03EF40</string>
 					<string>DA7C28039816BAB6279ED37A</string>
@@ -6420,6 +6558,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -6510,6 +6649,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -6563,6 +6703,8 @@ fi
 				<array>
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
+					<string>67CE65D0E4DFEB2954F05FCD</string>
+					<string>F0EA3F17781D4A5FA1A20277</string>
 					<string>D3C1C48E59CAA2D68C0DD477</string>
 					<string>9CF4130A7E6DA19A3DC42B9A</string>
 					<string>C9466C434D1CF8AB968D298D</string>
@@ -6694,6 +6836,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>
@@ -6784,6 +6927,7 @@ fi
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
 						<string>src</string>
+						<string>../../../addons/ofxBonjour/src</string>
 						<string>../../../addons/ofxDatGui/src</string>
 						<string>../../../addons/ofxDatGui/src/components</string>
 						<string>../../../addons/ofxDatGui/src/core</string>

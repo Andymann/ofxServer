@@ -34,6 +34,10 @@ void ofApp::setup(){
     ofBackground(20,20,20);
     server.setup(sActiveNic, 44999);
     
+    bonjourPublisher.setup();
+    bonjourPublisher.publish("_ofxbonjour_example._tcp", "ofxServer", 44999);
+
+    
  /*
     mySequence.loadSequence("sequenceBig",FRAMERATE);
     mySequence.setShouldLoop(true);

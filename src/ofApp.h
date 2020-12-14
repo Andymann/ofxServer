@@ -5,6 +5,7 @@
 #include "ofxImageSequencePlayback.h"
 #include "ofxDatGui.h"
 #include "ofxXmlSettings.h"
+#include "ofxBonjour.h"
 //#include "ofxNetworkUtils.h"
 
 //----Avoiding conflict when accessing Poco... when ofxNetwork is present as folder
@@ -77,7 +78,7 @@ class ofApp : public ofBaseApp{
     void saveSettings();
     void setupGui();
     
-    
+    ofxBonjourPublisher bonjourPublisher;
 };
 
 class myCustomTheme : public ofxDatGuiTheme{

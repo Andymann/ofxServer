@@ -1,3 +1,4 @@
+ofxBonjour
 ofxDatGui
 ofxImageSequence
 ofxImageSequencePlayback
