@@ -16,8 +16,9 @@ static string sStatus_Quite = "Status: Not sending (hit <space> to toggle)";
 static string sXmlFile = "settings.xml";
 
 ofTexture tex;
-bool bSaveNext = false;
+
 bool bActive = false;
+bool bToggle = false;
 
 static std::vector<unsigned char> bufImg;
 //--------------------------------------------------------------
@@ -191,27 +192,21 @@ void ofApp::draw(){
     mySequence.draw();
     */
     
-    vidGrabber.draw(20, 50);
+    //if(server.getState()== SENDING){
+      //  if(server.getPctSent()>50){
+            vidGrabber.draw(20, 50);
+      //  }
+   //}
+    
     
     string statusStr =  "status: " + server.getStateStr();
     statusStr += " -- sent "+ofToString(server.getPctSent(), 2)+"% of " + ofToString(server.getPixelsSize()) + " bytes.";
        
-    /*
-    ofSetColor(255, 0, 255);
-    ofDrawBitmapString(statusStr, 10, 20);
-    ofDrawBitmapString("server - launch client than hit <space> key to send current frame", 10, ofGetHeight()-20);
-    */
     lblInfo->setLabel(statusStr);
     
     ofSetColor(255, 255, 255);
     
-    /*
-    if( bActive ){
-        lblStatus->setLabel(sStatus_Sending);
-    }else{
-        lblStatus->setLabel(sStatus_Quite);
-    }
-    */
+    
     
 }
 
@@ -220,11 +215,6 @@ void ofApp::keyPressed(int key){
     if( key == ' '){
         server.sendPixels( & bufImg );
         bActive = !bActive;
-    }
-    
-    if( key == 's'){
-        bSaveNext = true;
-        //server.saveImage();
     }
              
 }
@@ -296,12 +286,6 @@ void ofApp::processTexture(ofTexture pTexture, int pCompressionType){
 
     //---Imagedata into Buffer;
     ofSaveImage(pixels,ofBuff,OF_IMAGE_FORMAT_JPEG);
-    
-    if(bSaveNext){
-        bSaveNext = false;
-        //ofSaveImage(pixels, "test.jpeg");
-        ofBufferToFile("test.jpeg", ofBuff);
-    }
     
     
     char * p = ofBuff.getBinaryBuffer();
