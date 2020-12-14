@@ -5,8 +5,10 @@
 #include "ofxImageSequencePlayback.h"
 #include "ofxDatGui.h"
 #include "ofxXmlSettings.h"
-#include "ofxNetworkUtils.h"
-#include "ofxOsc.h"
+//#include "ofxNetworkUtils.h"
+
+//----Avoiding conflict when accessing Poco... when ofxNetwork is present as folder
+#include "../../addons/ofxNetworkUtils/src/ofxNetworkUtils.h"
 
 
 
@@ -16,16 +18,15 @@ class ofApp : public ofBaseApp{
 
 	public:
     
-    //Poco::Net::HostEntry thisHost;
-    //std::string nodeName;
-    //Poco::Net::IPAddress publicIp;
-    //Poco::Net::NetworkInterface::List siteLocalInterfaces;
     
 		void setup();
 		void update();
 		void draw();
-    
-    
+        
+        Poco::Net::HostEntry thisHost;
+        std::string nodeName;
+        Poco::Net::IPAddress publicIp;
+        Poco::Net::NetworkInterface::List siteLocalInterfaces;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -66,6 +67,7 @@ class ofApp : public ofBaseApp{
     ofxDatGui* gui;
     //ofxDatGuiDropdown* cmbNetwork;
     //ofxDatGuiButton* btnClear;
+    ofxDatGuiDropdown* cmbNic;
     ofxDatGuiSlider* sldMessageSize;
     ofxDatGuiLabel* lblStatus;
     ofxDatGuiLabel* lblInfo;
@@ -74,6 +76,8 @@ class ofApp : public ofBaseApp{
     void readSettings();
     void saveSettings();
     void setupGui();
+    
+    
 };
 
 class myCustomTheme : public ofxDatGuiTheme{

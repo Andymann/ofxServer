@@ -4,6 +4,9 @@ const int FRAMERATE = 30.0f;
 static int COMPRESSION_TURBOJPEG = 0x04;
 static int COMPRESSION_JPEG = 0x00;
 int iMessageSize;//0--255; will internally be multiplied by 1000
+string sActiveNic;
+
+
 
 static string sMessageSize = "MessageSize";
 static string sNic = "Network Interface";
@@ -28,7 +31,7 @@ void ofApp::setup(){
     setupGui();
     
     ofBackground(20,20,20);
-    server.setup("127.0.0.1", 44999);
+    server.setup("192.168.178.43"/*127.0.0.1"*/, 44999);
     
  /*
     mySequence.loadSequence("sequenceBig",FRAMERATE);
@@ -65,7 +68,7 @@ void ofApp::setup(){
 void ofApp::setupGui(){
     
     gui = new ofxDatGui( ofxDatGuiAnchor::TOP_LEFT );
-/*
+
     vector<string> optsNic;
     siteLocalInterfaces = ofxNet::NetworkUtils::listNetworkInterfaces(ofxNet::NetworkUtils::SITE_LOCAL);
 
@@ -73,14 +76,22 @@ void ofApp::setupGui(){
     for (const auto& interface: siteLocalInterfaces)
     {
         optsNic.push_back( interface.broadcastAddress().toString() );
+        optsNic.push_back( interface.address().toString());
     }
-    gui->addDropdown(sNic, optsNic);
- */
-    lblInfo = gui->addLabel("Info");
+    cmbNic = gui->addDropdown(sNic, optsNic);
+    if (std::find(optsNic.begin(), optsNic.end(), sActiveNic) != optsNic.end()){
+        cmbNic->setLabel(sActiveNic);
+    }else{
+        cmbNic->setLabel("127.0.0.1");
+    }
+    
+    
     
     sldMessageSize = gui->addSlider(sMessageSize, 5, 255);
     sldMessageSize->setPrecision(0);
     sldMessageSize->setValue((float)iMessageSize);
+    
+    lblInfo = gui->addLabel("Info");
     
     //lblStatus = gui->addLabel(sStatus_Quite);
     
@@ -90,6 +101,7 @@ void ofApp::setupGui(){
     
     // once the gui has been assembled, register callbacks to listen for component specific events
     gui->onSliderEvent(this, &ofApp::onSliderEvent);
+    gui->onDropdownEvent(this, &ofApp::onDropdownEvent);
 }
 
 //--------------------------------------------------------------
@@ -97,17 +109,20 @@ void ofApp::readSettings(){
     if (xmlSettings.loadFile(sXmlFile)) {
         ofLogVerbose()<<"XML loaded"<<endl;
         //addLog("XML loaded");
+        iMessageSize = xmlSettings.getValue("MessageSize", 200);
+        sActiveNic = xmlSettings.getValue("Network", "127.0.0.1");
     }else{
         ofLogVerbose("Could not load xml. Reverting to default values.");
         //addLog("Could not load xml. Reverting to default values.");
     }
     
-    iMessageSize = xmlSettings.getValue("MessageSize", 200);
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::saveSettings(){
     xmlSettings.setValue("MessageSize", iMessageSize);
+    xmlSettings.setValue("Network",sActiveNic);
     xmlSettings.save(sXmlFile);
 }
 
@@ -116,6 +131,15 @@ void ofApp::onSliderEvent(ofxDatGuiSliderEvent e){
     string sTarget = ofToString(e.target->getName());
     if(sTarget == sMessageSize){
         iMessageSize = e.target->getValue();
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::onDropdownEvent(ofxDatGuiDropdownEvent e){
+    string sTarget = ofToString(e.target->getName());
+    if(sTarget == sNic){
+        //ofLogNotice(e.target->getLabel());
+        sActiveNic = e.target->getLabel();
     }
 }
 
